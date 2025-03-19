@@ -11,7 +11,7 @@ mock_content = """
 | 002       | Smart Light       | Light       | Adjustable brightness and color            |
 | 003       | Security Camera   | Camera      | HD video recording with night vision       |
 
-### JSON Example
+### Chart block example
 
 ```chart
 {
