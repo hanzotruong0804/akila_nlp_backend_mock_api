@@ -1,3 +1,4 @@
+import json
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 import tiktoken
@@ -35,7 +36,9 @@ async def generate_mock_response_stream(user_message: str):
     Stream message back similar to ChatGPT without using llm.
     """
     for token in enc.encode(user_message):
-        yield f"data: {enc.decode([token])} \n\n"
+      data = {"content": enc.decode([token])}
+      print(f"chunk: {json.dumps(data)}")
+      yield f"data: {json.dumps(data)}\n\n"
         # await asyncio.sleep(0.01)  # Reduce transmission latency
 
 
