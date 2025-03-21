@@ -39,7 +39,9 @@ async def generate_mock_response_stream(user_message: str):
       data = {"content": enc.decode([token])}
       print(f"chunk: {json.dumps(data)}")
       yield f"data: {json.dumps(data)}\n\n"
-        # await asyncio.sleep(0.01)  # Reduce transmission latency
+      # await asyncio.sleep(0.01)  # Reduce transmission latency
+
+    yield f"data: [DONE]\n\n"
 
 
 @router.post("/")

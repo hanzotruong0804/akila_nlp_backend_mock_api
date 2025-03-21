@@ -15,10 +15,11 @@ def test_chat_endpoint():
         if line:
             # print("before decode: ", line)
             line = line.decode('utf-8')
-            # print("after decode: ", line)
+            print("=> after decode: ", line)
             if line.startswith('data: '):
                 line = line[6:]  # Remove 'data: ' prefix
                 if line.strip() == '[DONE]':
+                    print("receive DONE")
                     break
                 try:
                     chunk = json.loads(line)
